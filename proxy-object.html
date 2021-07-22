@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proxy Object</title>
+</head>
+
+<body>
+  <Script>
+    // Acts as a layer between operations on an object(traps)
+    // useful for validaton and adding custom behaviour
+
+    const gameSetting = { difficulty: "easy" }
+    const gameSettingProxy = new Proxy(gameSetting, {
+      get: (o, property) => { // o refers to the target object and property refers to the property we want to retrive
+        return "decode"
+      }
+    }); // in the second input we will enter bunch of methods that will run before any operation.
+
+    console.log(gameSettingProxy.difficulty)
+  </Script>
+</body>
+
+</html>
